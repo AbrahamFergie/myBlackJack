@@ -34,10 +34,7 @@ const middleware = webpackMiddleware(compiler, {
 
 app.use(middleware)
 app.use(webpackHotMiddleware(compiler))
-
-app.get('*', (req, res) => {
-  res.write(middleware.fileSystem.readFileSync(path.join(__dirname, 'dist/index.html')))
-})
+app.use(express.static('client'))
 
 // development error handler
 // will print stacktrace
