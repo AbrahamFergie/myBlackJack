@@ -6,3 +6,81 @@ body {
 a {
   color: #00B7FF;
 }
+
+#board {
+  background-image:  url(http://www.fun-free-party-games.com/ffpg-allimages/Blackjack-Table-Smalltext-A4.gif);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  width: 100%;
+  height: 80%;
+  border: 3px solid blue;
+  box-sizing: border-box;
+}
+#dealer {
+  background-color: white;
+  opacity: 0.5;
+  margin-top: 8px;
+  margin-left: 40%;
+  display:block;
+  width: 20%;
+  height: 20%;
+  border: 2px solid blue;
+  box-sizing: border-box;
+}
+#players {
+  position:relative;
+  width:auto;
+  height:78%;
+}
+
+
+
+#player1 {
+  position: absolute;
+  background-color: white;
+  opacity: 0.5;
+  top:0;
+  left:0;
+  display:block;
+  width: 20%;
+  height: 30%;
+  border: 2px solid blue;
+  box-sizing: border-box;
+}
+
+#player2 {
+  position: absolute;
+  background-color: white;
+  opacity: 0.5;
+  bottom:0;
+  left:0;
+  display:block;
+  width: 20%;
+  height: 30%;
+  border: 2px solid blue;
+  box-sizing: border-box;
+}
+#player3 {
+  position: absolute;
+  background-color: white;
+  opacity: 0.5;
+  top:0;
+  right:0;
+  display:block;
+  width: 20%;
+  height: 30%;
+  border: 2px solid blue;
+  box-sizing: border-box;
+}
+#player4 {
+  position: absolute;
+  background-color: white;
+  opacity: 0.5;
+  bottom:0;
+  right: 0;
+  display:block;
+  width: 20%;
+  height: 30%;
+  border: 2px solid blue;
+  box-sizing: border-box;
+}

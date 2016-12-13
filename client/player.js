@@ -1,0 +1,20 @@
+import React, { Component } from 'react'
+import Hand from './hand'
+
+export default class Player extends Component {
+  constructor(props) {
+    super(props)
+    this.name = String
+    this.bank = 100
+    this.hand = <Hand />
+
+  }
+
+
+  render () {
+    const player = this.props.player
+    return <div id={player}>
+      {player}<br /><br /> {"wallet: " + this.bank}<br /><br />
+      {"Hand" + this.hand} </div>
+  }
+}
