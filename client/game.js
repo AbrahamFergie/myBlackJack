@@ -1,7 +1,13 @@
 import React, { Component } from 'react'
+import Prompt from 'react-bootstrap-prompt'
 
 export default class Game React.createClass() {
-
+  componentDidMount(){
+    this.name
+    this.refs.prompt
+    .show('Please enter your name')
+    .then(() => this.name)
+  }
 
   //prompt for userName
 

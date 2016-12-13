@@ -4,8 +4,7 @@ import React, { Component } from 'react'
 export default class Hand extends Component{
   constructor(props) {
     super(props)
-    this.name = "playerName",
-    this.bank = Number
+    this.name = "playerName"
   }
 
   placeBet() {
@@ -30,6 +29,6 @@ export default class Hand extends Component{
   }
 
   render () {
-    return <div></div>
+    return <div>im the hand</div>
   }
 }
