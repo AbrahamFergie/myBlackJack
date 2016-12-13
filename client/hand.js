@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 
+
 export default class Hand extends Component{
-  constructor(playerName) {
+  constructor(props) {
     super(props)
-    this.name = playerName,
+    this.name = "playerName",
     this.bank = Number
   }
 
@@ -29,6 +30,6 @@ export default class Hand extends Component{
   }
 
   render () {
-    return <div>im a hand</div>
+    return <div></div>
   }
 }

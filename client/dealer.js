@@ -1,11 +1,10 @@
 import React, { Component } from 'react'
 import Hand from './hand'
+import Deck from './deck'
 
 export default class Dealer extends Component {
     constructor(props) {
       super(props)
-      this.hand = <Hand />
-
     }
 
 
@@ -13,7 +12,7 @@ export default class Dealer extends Component {
       const dealer = this.props.dealer
       return <div id={dealer}>
         {"Dealer"}<br /><br /> {"wallet: " + this.bank}<br /><br />
-        {"Hand" + this.hand} </div>
+        "Hand: "<Hand /> <Deck /> </div>
     }
 
 }

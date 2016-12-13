@@ -1,4 +1,3 @@
-import React, { Component } from 'react'
 const SPADES = '♠️'
 const CLUBS = '♣️'
 const HEARTS = '♥️'
@@ -17,7 +16,7 @@ const VALUES = {
   [ACE]:  1 || 11
 }
 
-export default class Card extends Component {
+class Card{
 
   constructor(rank, suit) {
 
@@ -58,10 +57,10 @@ export default class Card extends Component {
         cards.push(new Card( rank, suit ))
       })
     })
-    console.log(cards);
     return cards
-
   }
+
+  
 
 
 Card.SUITS     = SUITS

@@ -6,8 +6,6 @@ export default class Player extends Component {
     super(props)
     this.name = String
     this.bank = 100
-    this.hand = <Hand />
-
   }
 
 
@@ -15,6 +13,6 @@ export default class Player extends Component {
     const player = this.props.player
     return <div id={player}>
       {player}<br /><br /> {"wallet: " + this.bank}<br /><br />
-      {"Hand" + this.hand} </div>
+      "Hand": <Hand /> </div>
   }
 }
