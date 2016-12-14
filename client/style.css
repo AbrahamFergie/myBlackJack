@@ -28,59 +28,30 @@ a {
   box-sizing: border-box;
 }
 #players {
-  position:relative;
+  position:;
   width:auto;
   height:78%;
 }
 
-
-
-#player1 {
-  position: absolute;
+#player {
+  position: relative;
   background-color: white;
   opacity: 0.5;
-  top:0;
-  left:0;
+  margin-top: 30%;
+  left:40%;
   display:block;
   width: 20%;
   height: 30%;
   border: 2px solid blue;
   box-sizing: border-box;
 }
+#dealerName{
+  color:white;
+}
+#hand{
+  background-color: violet;
+}
+.card {
 
-#player2 {
-  position: absolute;
-  background-color: white;
-  opacity: 0.5;
-  bottom:0;
-  left:0;
-  display:block;
-  width: 20%;
-  height: 30%;
-  border: 2px solid blue;
-  box-sizing: border-box;
-}
-#player3 {
-  position: absolute;
-  background-color: white;
-  opacity: 0.5;
-  top:0;
-  right:0;
-  display:block;
-  width: 20%;
-  height: 30%;
-  border: 2px solid blue;
-  box-sizing: border-box;
-}
-#player4 {
-  position: absolute;
-  background-color: white;
-  opacity: 0.5;
-  bottom:0;
-  right: 0;
-  display:block;
-  width: 20%;
-  height: 30%;
-  border: 2px solid blue;
-  box-sizing: border-box;
+  background-color: red;
 }
