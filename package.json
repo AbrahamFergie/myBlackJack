@@ -1,5 +1,5 @@
 {
-  "name": "new-react-app",
+  "name": "BlackJack",
   "version": "1.0.0",
   "description": "A simple react app that says hello",
   "main": "index.js",
@@ -51,6 +51,7 @@
     "debug": "^2.3.3",
     "express": "^4.14.0",
     "html-loader": "^0.4.4",
+    "lodash": "^4.17.2",
     "morgan": "^1.7.0",
     "react": "^15.4.1",
     "react-dom": "^15.4.1",

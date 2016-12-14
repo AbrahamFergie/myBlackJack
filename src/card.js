@@ -60,7 +60,7 @@ class Card{
     return cards
   }
 
-  
+
 
 
 Card.SUITS     = SUITS
@@ -75,4 +75,4 @@ Card.QUEEN     = QUEEN
 Card.KING      = KING
 
 
-module.exports = Card
+module.exports = { all: Card.all }

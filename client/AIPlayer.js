@@ -4,6 +4,7 @@ import Hand from './hand'
 export default class Player extends Component {
   constructor(props) {
     super(props)
+    this.human = false
     this.name = String
     this.bank = 100
   }

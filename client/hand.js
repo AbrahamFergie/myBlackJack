@@ -1,34 +1,37 @@
 import React, { Component } from 'react'
+// import Card from '../'
 
 
 export default class Hand extends Component{
   constructor(props) {
     super(props)
-    this.name = "playerName"
   }
 
-  placeBet() {
-    //take numeric value
-    return "you"
+  showCards() {
+    const { handArray } = this.props
+    let cards
+    if ( handArray == undefined || handArray.length < 1 ) {
+      cards = []
+    } else {
+      cards = handArray.map( (card, key) => {
+        console.log("CARD", card)
+        return (
+          <div className="card" key={key}>
+            <span>{ card.face }</span>
+            <span>{ card.suit }</span>
+          </div>
+        )
+      })
+    }
+    console.log(cards)
+    return cards
   }
 
-  hitOption() {
-    //takes card from deck and gives to player
-  }
-
-  stayOption() {
-    //end player turn
-  }
-
-  doubleDown() {
-    //take a card from the deck, and double bet
-  }
-
-  fold() {
-    //decrement your bank by bet, and end your turn
-  }
 
   render () {
-    return <div>im the hand</div>
-  }
+    return (
+      <div>
+        { this.showCards() }
+      </div>
+  )}
 }
