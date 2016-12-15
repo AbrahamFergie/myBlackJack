@@ -10,8 +10,9 @@ a {
 }
 
 #board {
-  background-image:  url(http://www.fun-free-party-games.com/ffpg-allimages/Blackjack-Table-Smalltext-A4.gif);
+  background-image:  url("http://wallpapercave.com/wp/v5eW6jf.jpg");
   background-repeat: no-repeat;
+  background-size: 100% 100%;
 
   /*background-attachment: fixed;*/
   /*overflow: hidden;*/
@@ -26,7 +27,9 @@ a {
   position:inherit;
 }
 #dealer {
-  background-color: white;
+  background-image:url("https://s3-media1.fl.yelpcdn.com/bphoto/XbwfYxLIhY8lTpt3v7wNWw/o.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
   opacity: 0.9;
   margin-top: 8px;
   margin-left: 25%;
@@ -34,6 +37,8 @@ a {
   width: 50%;
   height: 25%;
   border: 2px solid blue;
+  border-radius: 5px;
+
   box-sizing: border-box;
 }
 
@@ -61,9 +66,16 @@ a {
   width: 50%;
   height: 25%;
   border: 2px solid blue;
+  border-radius: 5px;
   box-sizing: border-box;
+
 }
 #dealerName{
+  border: 0.5px solid black;
+  font-size: 40px;
+  background-color:orange;
+  width:100%;
+  border-radius: 5px;
   color:white;
 }
 #playerName{
@@ -71,6 +83,7 @@ a {
   font-size: 40px;
   background-color:orange;
   width:100%;
+  border-radius: 5px;
 }
 #cardSuit{
   color: #ffff00;
@@ -89,11 +102,11 @@ a {
 }
 #hand{
   position: relative;
-  background-color: violet;
 }
 #bank{
   background-color: white;
   position: absolute;
+  border-radius: 5px;
   /*display:flex;
   flex-wrap: wrap;*/
   bottom:0px;
