@@ -1,3 +1,4 @@
+import _ from 'lodash'
 const SPADES = '♠️'
 const CLUBS = '♣️'
 const HEARTS = '♥️'
@@ -57,7 +58,7 @@ class Card{
         cards.push(new Card( rank, suit ))
       })
     })
-    return cards
+    return _.shuffle(cards)
   }
 
 

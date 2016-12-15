@@ -1,6 +1,8 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  height:auto;
+  width:auto;
 }
 
 a {
@@ -10,48 +12,90 @@ a {
 #board {
   background-image:  url(http://www.fun-free-party-games.com/ffpg-allimages/Blackjack-Table-Smalltext-A4.gif);
   background-repeat: no-repeat;
-  background-size: 100%;
-  width: 100%;
-  height: 80%;
+
+  /*background-attachment: fixed;*/
+  /*overflow: hidden;*/
+  /*display:inline-block;*/
+  margin-left: auto;
+  margin-right: auto;
+  position: inherit;
   border: 3px solid blue;
   box-sizing: border-box;
 }
+#foo{
+  position:inherit;
+}
 #dealer {
   background-color: white;
-  opacity: 0.5;
+  opacity: 0.9;
   margin-top: 8px;
-  margin-left: 40%;
+  margin-left: 25%;
   display:block;
-  width: 20%;
-  height: 20%;
+  width: 50%;
+  height: 25%;
   border: 2px solid blue;
   box-sizing: border-box;
 }
-#players {
-  position:;
-  width:auto;
-  height:78%;
-}
 
+
+.card {
+  border:0.5px solid black;
+  border-radius: 7px;
+  height: 140px;
+  width: 95px;
+  float:left;
+  margin:5px;
+  /*background-color: #90ee90;*/
+  background-image:url("http://t09.deviantart.net/J0g3xl2jd0jisHH7q8wgmnkoi4Y=/300x200/filters:fixed_height(100,100):origin()/pre03/3c3d/th/pre/f/2013/303/3/3/lady_deadpool___colors_by_zethkeeper-d6sdqhf.jpg");
+}
 #player {
   position: relative;
   background-color: white;
-  opacity: 0.5;
+  background-image: url("http://pleated-jeans.com/wp-content/uploads/2013/03/Screen-shot-2013-03-30-at-9.06.11-AM.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  opacity: 0.9;
   margin-top: 30%;
-  left:40%;
+  left: 25%;
   display:block;
-  width: 20%;
-  height: 30%;
+  width: 50%;
+  height: 25%;
   border: 2px solid blue;
   box-sizing: border-box;
 }
 #dealerName{
   color:white;
 }
+#playerName{
+  border: 0.5px solid black;
+  font-size: 40px;
+  background-color:orange;
+  width:100%;
+}
+#cardSuit{
+  color: #ffff00;
+  position: relative;
+  font-size:70px;
+  top:11%;
+  left:25%;
+}
+#cardRank{
+  position:inherit;
+  border-radius: 2px;
+  width:13%;
+  background-color: black;
+  color: #ffff00;
+  position: inherit;
+}
 #hand{
+  position: relative;
   background-color: violet;
 }
-.card {
-
-  background-color: red;
+#bank{
+  background-color: white;
+  position: absolute;
+  /*display:flex;
+  flex-wrap: wrap;*/
+  bottom:0px;
+  right:0px;
 }

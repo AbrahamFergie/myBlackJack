@@ -17,8 +17,8 @@ export default class Hand extends Component{
         console.log("CARD", card)
         return (
           <div className="card" key={key}>
-            <span>{ card.face }</span>
-            <span>{ card.suit }</span>
+            <div id="cardRank">{ card.rank }</div>
+            <span id="cardSuit">{ card.suit }</span>
           </div>
         )
       })
