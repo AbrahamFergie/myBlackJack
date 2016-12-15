@@ -3,19 +3,20 @@ import Player from './humanPlayer'
 // import Hand from './hand'
 import Dealer from './dealer'
 import deckGenerator from '../src/deck'
+import Deck from '../src/deck'
 
 
 export default class Board extends Component {
-  constructor( props ){
+   constructor( props ){
     super( props )
     this.state = {
-      deck: [],
+      deck: new Deck(),
       dealer: {},
       player: {},
       cardsRemaining: [],
       cardsUsed: []
     }
-    this.testDeal = this.testDeal.bind( this )
+    // this.testDeal = this.testDeal.bind( this )
   }
 
   componentDidMount(){
@@ -26,10 +27,11 @@ export default class Board extends Component {
   }
 
   setupGame() {
-    const deck = [ {suit: 'A', value: 11}, { suit: 'J', value: 10 }  ]
+  //   const deck = [ {suit: 'A', value: 11}, { suit: 'J', value: 10 }  ]
+  //
+  //   console.log(deck.length)
+  //   this.setState({ deck })
 
-    console.log(deck.length)
-    this.setState({ deck })
   }
 
   setupPlayers() {
@@ -43,16 +45,21 @@ export default class Board extends Component {
       bank: 100000000,
       hand: []
     }
-    this.setState({ dealer, player })
+    this.setState(Object.assign(this.state, { dealer, player }))
   }
 
   testDeal() {
-    let { deck, dealer } = this.state
-    dealer.hand.push( deck.shift() )
-
-    console.log(dealer)
-    console.log(deck.length)
-    this.setState({ dealer, deck })
+    // console.log('this.state::', this.state)
+    let { deck, dealer, player } = this.state
+    for(let i = 0;i < 2; i++){
+      dealer.hand.push( deck.cards.shift() )
+    }
+    for(let i = 0;i < 2; i++){
+      player.hand.push( deck.cards.shift() )
+    }
+    // console.log(dealer)
+    // console.log(deck.cards.length)
+    this.setState(Object.assign(this.state, { player, dealer, deck }))
   }
 
   //prompt for userName
@@ -83,6 +90,7 @@ export default class Board extends Component {
 
   //prompt for new game
 
+  // setTimeout()
   render () {
     const { dealer, deck, player } = this.state
     const dealerComponent = <Dealer name={dealer.name} handArray={dealer.hand} />
@@ -90,9 +98,9 @@ export default class Board extends Component {
     return (
       <div id="foo">
         <div id="dealer"> { dealerComponent } </div>
-        <div id="player"> { playerComponent } </div>
+        <div id="playerSpace"> { playerComponent } </div>
 
-        <button onClick={this.testDeal}>Deal</button>
+        <button onClick={this.testDeal.bind(this)}>Deal</button>
     </div>
   )
   }

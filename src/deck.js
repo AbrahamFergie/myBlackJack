@@ -1,14 +1,11 @@
-import React, { Component } from 'react'
+//import React, { Component } from 'react'
 import _ from 'lodash'
 import { all } from './card'
 
-export default class Deck extends Component{
-  constructor (props) {
-    super(props)
-    this.cards = all
+export default class Deck{
+  constructor () {
+    this.cards = all()
     this.numberOfDecks = 2
-    this.generateCards(this.numberOfDecks)
-    this.shuffleDeck = this.shuffleDeck.bind( this )
   }
 
   generateCards () {
@@ -25,14 +22,8 @@ export default class Deck extends Component{
   }
 
 
-  shuffleDeck () {
-    //take the deck and its going to shuffle
-    return this.cards = _.shuffle(this.cards)
-  }
-
   createDeck(){
     const deck = shuffleDeck()
-    console.log(deck);
     return deck
   }
 

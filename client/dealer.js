@@ -9,8 +9,7 @@ export default class Dealer extends Component {
     }
 
     render () {
-      console.log('DEALER', this.props)
-
+      
       const { name, handArray } = this.props
 
 
