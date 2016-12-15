@@ -19,10 +19,11 @@ const VALUES = {
 
 class Card{
 
-  constructor(rank, suit) {
+  constructor(rank, suit, value) {
 
       this.suit = suit
       this.rank = rank
+      this.value = value
 
   }
 
@@ -30,21 +31,6 @@ class Card{
     return this.rank === ACE
   }
 
-  value() {
-    let value = ''
-    if ( this.rank > 1 && this.rank < 11 ) {
-      value = this.rank
-      return value
-
-    } else if ( this.rank === ACE ) {
-      value = 11
-      return value
-
-    } else {
-      value  = 10
-      return value
-    }
-  }
 
   toString(){
     return `${this.rank}${this.suit}`

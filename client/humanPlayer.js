@@ -10,7 +10,7 @@ export default class Player extends Component {
 
   render () {
     const { name, handArray, bank } = this.props
-    console.log("im the handArray: ",handArray);
+    // console.log("im the handArray: ",handArray);
 
     return (<div id="player">
             <span id="playerName">{name}</span><br /><br />

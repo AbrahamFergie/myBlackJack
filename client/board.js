@@ -23,46 +23,74 @@ export default class Board extends Component {
     //TODO:  Get cards from somewhere and store in a variable called deck
     this.setupGame()
     this.setupPlayers()
+    this.start()
 
   }
 
   setupGame() {
-  //   const deck = [ {suit: 'A', value: 11}, { suit: 'J', value: 10 }  ]
-  //
-  //   console.log(deck.length)
-  //   this.setState({ deck })
-
+    this.timeOut()
+    // this.stopTimeOut()
+  }
+  timeOut(){
+    let deal
+    return deal = setTimeout(this.deal.bind(this), 2000)
+    this.stopTimeOut()
+  }
+  stopTimeOut(){
+    return clearTimeout(deal)
   }
 
   setupPlayers() {
     const dealer = {
       name: 'Dealer',
+      stay: false,
       hand: []
     }
-
+    const playerName = prompt("Please enter your name: ")
+    const daBank = prompt("How much money do you want: ")
     const player = {
-      name: 'El Dood',
-      bank: 100000000,
+      name: playerName,
+      bank: daBank,
+      stay: false,
       hand: []
     }
     this.setState(Object.assign(this.state, { dealer, player }))
   }
 
-  testDeal() {
+
+  deal() {
     // console.log('this.state::', this.state)
     let { deck, dealer, player } = this.state
     for(let i = 0;i < 2; i++){
       dealer.hand.push( deck.cards.shift() )
-    }
-    for(let i = 0;i < 2; i++){
       player.hand.push( deck.cards.shift() )
     }
     // console.log(dealer)
     // console.log(deck.cards.length)
     this.setState(Object.assign(this.state, { player, dealer, deck }))
   }
+  hit(){
+    let { deck, dealer, player } = this.state
+    for(let i = 0;i < 1; i++){
+      // dealer.hand.push( deck.cards.shift() )
+      player.hand.push( deck.cards.shift() )
+    }
+    // console.log(dealer)
+    // console.log(deck.cards.length)
+    this.setState(Object.assign(this.state, { player, dealer, deck }))
+  }
+  stay(){
+    let player = this.state.player
 
-  //prompt for userName
+    player ?
+    player.stay = true
+    // this.setState(Object.assign(this.state.player.stay, { stay : true }))
+    : player.stay = player.stay
+    // console.log("PLAYER: ",this.state.player);
+
+    this.setState({ player })
+  }
+
 
   //prompt for wage
 
@@ -72,15 +100,13 @@ export default class Board extends Component {
 
   //createDeck
 
-  //Dealer will deal
-  // deal() {
-  //   Dealer.Hand.push(this.shuffleDeck().slice(0,2))
-  //   Player.Hand.forEach(hand => {
-  //     hand.push(this.shuffleDeck().slice(0,2))
-  //   })
-  // }
-  //begin turn rotation of players
 
+  //begin turn rotation of players
+  start(){
+    //prompt for userName
+
+
+  }
   //prompt for turn decision
     //until stay or bust
 
@@ -92,15 +118,17 @@ export default class Board extends Component {
 
   // setTimeout()
   render () {
+
     const { dealer, deck, player } = this.state
-    const dealerComponent = <Dealer name={dealer.name} handArray={dealer.hand} />
+    const dealerComponent = <Dealer name={dealer.name} dHandArray={dealer.hand} />
     const playerComponent = <Player name={player.name} handArray={player.hand} bank={player.bank} />
     return (
       <div id="foo">
         <div id="dealer"> { dealerComponent } </div>
         <div id="playerSpace"> { playerComponent } </div>
 
-        <button onClick={this.testDeal.bind(this)}>Deal</button>
+        <button onClick={this.hit.bind(this)}>Hit</button>
+        <button onClick={this.stay.bind(this)}>Stay</button>
     </div>
   )
   }

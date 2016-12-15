@@ -55,6 +55,34 @@ a {
   /*background-color: #90ee90;*/
   background-image:url("http://t09.deviantart.net/J0g3xl2jd0jisHH7q8wgmnkoi4Y=/300x200/filters:fixed_height(100,100):origin()/pre03/3c3d/th/pre/f/2013/303/3/3/lady_deadpool___colors_by_zethkeeper-d6sdqhf.jpg");
 }
+.cardDown{
+  border:0.5px solid black;
+  border-radius: 7px;
+  height: 140px;
+  width: 95px;
+  float:left;
+  margin:5px;
+  transform-style: preserve-3d;
+  transition: transform 1s;
+  transform: rotateY(180deg);
+  backface-visibility: hidden;
+   /*background-color: #90ee90;*/
+  /*background-image:url("http://t09.deviantart.net/J0g3xl2jd0jisHH7q8wgmnkoi4Y=/300x200/filters:fixed_height(100,100):origin()/pre03/3c3d/th/pre/f/2013/303/3/3/lady_deadpool___colors_by_zethkeeper-d6sdqhf.jpg");*/
+}
+/*#reveal .cardDown{
+  border:0.5px solid black;
+  border-radius: 7px;
+  height: 140px;
+  width: 95px;
+  float:left;
+  margin:5px;
+  transform-style: preserve-3d;
+  transition: transform 1s;
+  transform: rotateY(180deg);
+
+   background-color: #90ee90;
+  background-image:url("http://t09.deviantart.net/J0g3xl2jd0jisHH7q8wgmnkoi4Y=/300x200/filters:fixed_height(100,100):origin()/pre03/3c3d/th/pre/f/2013/303/3/3/lady_deadpool___colors_by_zethkeeper-d6sdqhf.jpg");
+}*/
 #player {
   position: relative;
   background-color: white;
