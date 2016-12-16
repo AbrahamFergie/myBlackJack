@@ -80,9 +80,9 @@ export default class Board extends Component {
 
     let handTotal = 0
 
-    for(let i = 0; i < player.hand.length - 1 ; i++){
-      handTotal = handTotal + player.hand[i].value
-      console.log("VALUES: ", player.hand[i].value)
+    for(let i = 0; i < player.hand.length; i++){
+      handTotal = handTotal + player.hand[i].rank.value
+      console.log("VALUES: ", player.hand[i].rank.value)
     }
     player.cardTotal = handTotal
     console.log("handValue: ", player.cardTotal)
@@ -139,8 +139,8 @@ export default class Board extends Component {
         <div id="dealer"> { dealerComponent } </div>
         <div id="playerSpace"> { playerComponent } </div>
 
-        <button onClick={this.hit.bind(this)}>Hit</button>
-        <button onClick={this.stay.bind(this)}>Stay</button>
+        <button id="hit" onClick={this.hit.bind(this)}>Hit</button>
+        <button id="stay" onClick={this.stay.bind(this)}>Stay</button>
     </div>
   )
   }

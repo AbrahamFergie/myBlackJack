@@ -9,13 +9,19 @@ const KING = 'K'
 const ACE = 'A'
 
 const SUITS = [SPADES, CLUBS, HEARTS, DIAMONDS]
-const RANKS = [2, 3, 4, 5, 6, 7, 8, 9, 10, JACK, QUEEN, KING, ACE]
-const VALUES = {
-  [JACK]:   10,
-  [QUEEN]:  10,
-  [KING]:   10,
-  [ACE]:  1 || 11
-}
+const RANKS = [{name:"2", value:2},
+              {name:"3", value:3},
+              {name:"4", value:4},
+              {name:"5", value:5},
+              {name:"6", value:6},
+              {name:"7", value:7},
+              {name:"8", value:8},
+              {name:"9", value:9},
+              {name:"10", value:10},
+              {name:"J", value:10},
+              {name:"Q", value:10},
+              {name:"K", value:10},
+              {name:"A", value:11}]
 
 class Card{
 
@@ -42,24 +48,10 @@ class Card{
     SUITS.forEach(suit =>{
       RANKS.forEach(rank =>{
         cards.push(new Card( rank, suit ))
+
       })
     })
-    cardValue(card) {
-      console.log("CARD: ",card)
-      // let value = ''
-      if ( card.rank > 1 && card.rank < 11 ) {
-        card.value = card.rank
-        return card
 
-      } else if ( card.rank === "A" ) {
-        card.value = 11
-        return card
-
-      } else {
-        card.value  = 10
-        return card
-      }
-    }
     return _.shuffle(cards)
   }
 

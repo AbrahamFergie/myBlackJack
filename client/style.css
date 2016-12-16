@@ -29,7 +29,7 @@ a {
   position:inherit;
 }
 #dealer {
-  background-image:url("https://s3-media1.fl.yelpcdn.com/bphoto/XbwfYxLIhY8lTpt3v7wNWw/o.jpg");
+  background-image:url("http://www.customtablefelt.com/images/suited-poker-felt/suited-poker-table-felt-400x300.jpg");
   background-repeat: no-repeat;
   background-size: 100% 100%;
   opacity: 0.9;
@@ -86,7 +86,7 @@ a {
 #player {
   position: relative;
   background-color: white;
-  background-image: url("http://pleated-jeans.com/wp-content/uploads/2013/03/Screen-shot-2013-03-30-at-9.06.11-AM.jpg");
+  background-image: url("http://www.customtablefelt.com/images/suited-poker-felt/suited-poker-table-felt-400x300.jpg");
   background-repeat: no-repeat;
   background-size: 100% 100%;
   opacity: 0.9;
@@ -132,6 +132,32 @@ a {
 }
 #hand{
   position: relative;
+}
+#hit{
+  position: relative;
+  top:-50px;
+  right:-169px;
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+#stay{
+  position: relative;
+  top:-50px;
+  right:-677px;
+  background-color: #4CAF50; /* Green */
+  border: 1px solid black;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
 }
 #bank{
   background-color: white;

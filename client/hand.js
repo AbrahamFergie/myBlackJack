@@ -6,25 +6,25 @@ export default class Hand extends Component{
   constructor(props) {
     super(props)
   }
-  showCardUpNDown() {
-    const { dHandArray } = this.props
-    let cards
-    dHandArray == undefined || dHandArray.length < 1 ?
-      cards = [] :
-      cards = dHandArray.map((card, key) => {
-        console.log("KEYEEYEYEYEYEYYE", key);
-        return(key === 1 ? <div id="cardDown2" key={key}></div> :
-           <div>
-             <div className="card" key={key}>
-               <div id="cardRank">{ card.rank }</div>
-               <span id="cardSuit">{ card.suit }</span>
-             </div>
-           </div>
-        )
-      })
-
-      return cards
-    }
+  // showCardUpNDown() {
+  //   const { dHandArray } = this.props
+  //   let cards
+  //   dHandArray == undefined || dHandArray.length < 1 ?
+  //     cards = [] :
+  //     cards = dHandArray.map((card, key) => {
+  //
+  //       return(key === 1 ? <div id="cardDown2" key={key}></div> :
+  //          <div>
+  //            <div className="card" key={key}>
+  //              <div id="cardRank">{ card.rank.name }</div>
+  //              <span id="cardSuit">{ card.suit }</span>
+  //            </div>
+  //          </div>
+  //       )
+  //     })
+  //
+  //     return cards
+  //   }
   // cardValue(card) {
   //   console.log("CARD: ",card)
   //   // let value = ''
@@ -52,7 +52,7 @@ export default class Hand extends Component{
         return (
         <div>
           <div className={classString} key={key}>
-            <div id="cardRank">{ card.rank }</div>
+            <div id="cardRank">{ card.rank.name }</div>
             <span id="cardSuit">{ card.suit }</span>
           </div>
         </div>
@@ -69,12 +69,12 @@ export default class Hand extends Component{
       cards = []
     } else {
       cards = handArray.map( (card, key) => {
-        this.cardValue(card)
+        // this.cardValue(card)
         // this.handValue(card)
         // console.log("VALUE: ", card.value);
         return (
           <div className="card" key={key}>
-              <div id="cardRank">{ card.rank }</div>
+              <div id="cardRank">{ card.rank.name }</div>
               <span id="cardSuit">{ card.suit }</span>
           </div>
         )
