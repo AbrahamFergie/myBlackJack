@@ -44,6 +44,22 @@ class Card{
         cards.push(new Card( rank, suit ))
       })
     })
+    cardValue(card) {
+      console.log("CARD: ",card)
+      // let value = ''
+      if ( card.rank > 1 && card.rank < 11 ) {
+        card.value = card.rank
+        return card
+
+      } else if ( card.rank === "A" ) {
+        card.value = 11
+        return card
+
+      } else {
+        card.value  = 10
+        return card
+      }
+    }
     return _.shuffle(cards)
   }
 

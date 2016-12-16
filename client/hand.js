@@ -6,22 +6,42 @@ export default class Hand extends Component{
   constructor(props) {
     super(props)
   }
-  cardValue(card) {
-    console.log("CARD: ",card.rank);
-    // let value = ''
-    if ( card.rank > 1 && card.rank < 11 ) {
-      card.value = card.rank
-      return card
+  showCardUpNDown() {
+    const { dHandArray } = this.props
+    let cards
+    dHandArray == undefined || dHandArray.length < 1 ?
+      cards = [] :
+      cards = dHandArray.map((card, key) => {
+        console.log("KEYEEYEYEYEYEYYE", key);
+        return(key === 1 ? <div id="cardDown2" key={key}></div> :
+           <div>
+             <div className="card" key={key}>
+               <div id="cardRank">{ card.rank }</div>
+               <span id="cardSuit">{ card.suit }</span>
+             </div>
+           </div>
+        )
+      })
 
-    } else if ( card.rank === "A" ) {
-      card.value = 11
-      return card
-
-    } else {
-      card.value  = 10
-      return card
+      return cards
     }
-  }
+  // cardValue(card) {
+  //   console.log("CARD: ",card)
+  //   // let value = ''
+  //   if ( card.rank > 1 && card.rank < 11 ) {
+  //     card.value = card.rank
+  //     return card
+  //
+  //   } else if ( card.rank === "A" ) {
+  //     card.value = 11
+  //     return card
+  //
+  //   } else {
+  //     card.value  = 10
+  //     return card
+  //   }
+  // }
+
   showCardUpNDown() {
     const { dHandArray } = this.props
     let cards
@@ -50,7 +70,8 @@ export default class Hand extends Component{
     } else {
       cards = handArray.map( (card, key) => {
         this.cardValue(card)
-        console.log("VALUE: ", card.value);
+        // this.handValue(card)
+        // console.log("VALUE: ", card.value);
         return (
           <div className="card" key={key}>
               <div id="cardRank">{ card.rank }</div>
@@ -59,7 +80,6 @@ export default class Hand extends Component{
         )
       })
     }
-
     // cards.forEach(card =>{
     //   console.log();
     //   this.cardValue(card)

@@ -23,7 +23,7 @@ export default class Board extends Component {
     //TODO:  Get cards from somewhere and store in a variable called deck
     this.setupGame()
     this.setupPlayers()
-    this.start()
+    // this.dealerTurn()
 
   }
 
@@ -44,7 +44,8 @@ export default class Board extends Component {
     const dealer = {
       name: 'Dealer',
       stay: false,
-      hand: []
+      hand: [],
+      handValue: Number
     }
     const playerName = prompt("Please enter your name: ")
     const daBank = prompt("How much money do you want: ")
@@ -52,11 +53,11 @@ export default class Board extends Component {
       name: playerName,
       bank: daBank,
       stay: false,
-      hand: []
+      hand: [],
+      cardTotal: 0
     }
     this.setState(Object.assign(this.state, { dealer, player }))
   }
-
 
   deal() {
     // console.log('this.state::', this.state)
@@ -65,18 +66,27 @@ export default class Board extends Component {
       dealer.hand.push( deck.cards.shift() )
       player.hand.push( deck.cards.shift() )
     }
-    // console.log(dealer)
-    // console.log(deck.cards.length)
+
     this.setState(Object.assign(this.state, { player, dealer, deck }))
   }
   hit(){
     let { deck, dealer, player } = this.state
-    for(let i = 0;i < 1; i++){
-      // dealer.hand.push( deck.cards.shift() )
-      player.hand.push( deck.cards.shift() )
+
+    player ?
+    player.hand.push( deck.cards.shift() ) :
+    dealer.hand.push( deck.cards.shift() )
+
+    console.log("Hand: ", player.hand)
+
+    let handTotal = 0
+
+    for(let i = 0; i < player.hand.length - 1 ; i++){
+      handTotal = handTotal + player.hand[i].value
+      console.log("VALUES: ", player.hand[i].value)
     }
-    // console.log(dealer)
-    // console.log(deck.cards.length)
+    player.cardTotal = handTotal
+    console.log("handValue: ", player.cardTotal)
+    handTotal = 0
     this.setState(Object.assign(this.state, { player, dealer, deck }))
   }
   stay(){
@@ -102,11 +112,13 @@ export default class Board extends Component {
 
 
   //begin turn rotation of players
-  start(){
-    //prompt for userName
 
-
-  }
+  // dealerTurn(){
+  //   let dealer = this.state.dealer
+  //   dealer.
+  //   return
+  //
+  // }
   //prompt for turn decision
     //until stay or bust
 
