@@ -85,28 +85,91 @@ export default class Board extends Component {
 
     this.setState(Object.assign(this.state, { player, dealer, deck }))
   }
+  bust() {
+    let { player } = this.state
+
+    if(player.cardTotal > 21) {
+      console.log(player.cardTotal)
+      let playerHand = player.hand
+      console.log("kjdhfsk", player.hand[1].rank.value)
+      for(let i = 0; i < playerHand.length; i++) {
+        if(playerHand[i].rank.name === "A") {
+          playerHand[i].rank.value = 1
+          break;
+        } else {
+          alert("YOU SUCK :'(")
+          player.stay = true
+          return false
+        }
+      }
+
+    }else {
+      return true
+    }
+    return false
+  }
+  dealerBust() {
+    let { dealer } = this.state
+
+    if(dealer.cardTotal > 21) {
+      // console.log(dealer.cardTotal)
+      let dealerHand = dealer.hand
+      // console.log("kjdhfsk", dealer.hand[1].rank.value)
+      for(let i = 0; i < dealerHand.length; i++) {
+        if(dealerHand[i].rank.name === "A") {
+          dealerHand[i].rank.value = 1
+          break;
+        } else {
+          dealer.stay = true
+          return false
+        }
+      }
+
+    }else {
+      return true
+    }
+    return false
+  }
+
   hit(){
-    let { deck, dealer, player } = this.state
+    //debugger;
+    let { deck, player } = this.state
 
-    player ?
-    player.hand.push( deck.cards.shift() ) :
-    dealer.hand.push( deck.cards.shift() )
-
-    console.log("Hand: ", player.hand)
+    this.bust() ?
+    this.gameFlow() : player.hand.push( deck.cards.shift() )
 
     let handTotal = 0
 
     for(let i = 0; i < player.hand.length; i++){
       handTotal = handTotal + player.hand[i].rank.value
-      console.log("VALUES: ", player.hand[i].rank.value)
+      // console.log("VALUES: ", player.hand[i].rank.value)
     }
     player.cardTotal = handTotal
-    console.log("handValue: ", player.cardTotal)
+    // console.log("handValue: ", player.cardTotal)
     handTotal = 0
     this.setState(Object.assign(this.state, { player, dealer, deck }))
+
   }
+  dealerHit(){
+    let { dealer, deck } = this.state
+
+    this.dealerBust() ?
+    this.gameFlow() : (dealer.hand.push( deck.cards.shift() ), this.gameFlow())
+
+    let handTotal = 0
+
+    for(let i = 0; i < dealer.hand.length; i++){
+      handTotal = handTotal + dealer.hand[i].rank.value
+      // console.log("VALUES: ", player.hand[i].rank.value)
+    }
+    dealer.cardTotal = handTotal
+    // console.log("handValue: ", player.cardTotal)
+    handTotal = 0
+    this.setState(Object.assign(this.state, { dealer, deck }))
+  }
+
   stay(){
-    let player = this.state.player
+    let { player } = this.state.player
 
     player ?
     player.stay = true
@@ -114,37 +177,38 @@ export default class Board extends Component {
     : player.stay = player.stay
     // console.log("PLAYER: ",this.state.player);
 
-    this.setState({ player })
+    this.setState(Object.assign(this.state, { player }))
+    this.gameFlow()
   }
-  // isBust(){}
-  // isAce(){}
+
+  gameFlow() {
+    // debugger
+    let { player, dealer } = this.state
 
 
-  //prompt for wage
+    player.stay == true && dealer.stay == true ?
+    this.settle() :
+    (player.stay == true ?
+    this.dealerTurn() : null)
+    //dealer looks at hand
 
-  //prompt for # of AI opponents
+    // console.log("dealers turn")
+    //decides to hit or stay
+  }
+  dealerTurn(){
+    let { player, dealer } = this.state
+    dealer.cardTotal >= 17 ?
+      dealer.stay = true :
+      this.hit()
 
-  //prompt for seat #
+    console.log("state of dealer at his turn", dealer)
+    // this.gameFlow()
 
-  //createDeck
+  }
 
-
-  //begin turn rotation of players
-  // gameFlow() {
-  //   const { player, dealer } = this.this.state.
-  //
-  //   player.stay == true ?
-  //   //dealer looks at hand
-  //   //decides to hit or stay
-  // }
-  // dealerTurn(){
-  //   let dealer = this.state.dealer
-  //   dealer.
-  //   return dealer
-  //
-  // }
-
-  // settle(){}
+  settle(){
+    alert("IM IN SETTLE!")
+  }
   // reset(){}
   //game results displayed
 
@@ -155,9 +219,9 @@ export default class Board extends Component {
   // setTimeout()
   render () {
 
-    const { dealer, deck, player } = this.state
-    const dealerComponent = <Dealer name={dealer.name} dHandArray={dealer.hand} />
-    const playerComponent = <Player name={player.name} handArray={player.hand} bank={player.bank} />
+    let { dealer, deck, player } = this.state
+    let dealerComponent = <Dealer name={dealer.name} dHandArray={dealer.hand} />
+    let playerComponent = <Player name={player.name} handArray={player.hand} bank={player.bank} />
     return (
       <div id="foo">
         <div id="dealer"> { dealerComponent } </div>

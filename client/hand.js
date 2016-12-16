@@ -71,7 +71,7 @@ export default class Hand extends Component{
       cards = handArray.map( (card, key) => {
         // this.cardValue(card)
         // this.handValue(card)
-        // console.log("VALUE: ", card.value);
+        console.log("VALUE: ", card.rank.value);
         return (
           <div className="card" key={key}>
               <div id="cardRank">{ card.rank.name }</div>
