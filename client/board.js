@@ -45,13 +45,14 @@ export default class Board extends Component {
       name: 'Dealer',
       stay: false,
       hand: [],
-      handValue: Number
+      cardTotal: 0
     }
     const playerName = prompt("Please enter your name: ")
     const daBank = prompt("How much money do you want: ")
     const player = {
       name: playerName,
       bank: daBank,
+      bet: 0,
       stay: false,
       hand: [],
       cardTotal: 0
@@ -66,6 +67,21 @@ export default class Board extends Component {
       dealer.hand.push( deck.cards.shift() )
       player.hand.push( deck.cards.shift() )
     }
+    let handTotal = 0
+
+    for(let i = 0; i < player.hand.length; i++){
+      handTotal = handTotal + player.hand[i].rank.value
+      console.log("VALUES: ", player.hand[i].rank.value)
+    }
+    player.cardTotal = handTotal
+    // console.log("handValue: ", player.cardTotal)
+    handTotal = 0
+    for(let i = 0; i < dealer.hand.length; i++){
+      handTotal = handTotal + dealer.hand[i].rank.value
+      console.log("dVALUES: ", dealer.hand[i].rank.value)
+    }
+    dealer.cardTotal = handTotal
+    handTotal = 0
 
     this.setState(Object.assign(this.state, { player, dealer, deck }))
   }
@@ -100,6 +116,8 @@ export default class Board extends Component {
 
     this.setState({ player })
   }
+  // isBust(){}
+  // isAce(){}
 
 
   //prompt for wage
@@ -112,16 +130,22 @@ export default class Board extends Component {
 
 
   //begin turn rotation of players
-
+  // gameFlow() {
+  //   const { player, dealer } = this.this.state.
+  //
+  //   player.stay == true ?
+  //   //dealer looks at hand
+  //   //decides to hit or stay
+  // }
   // dealerTurn(){
   //   let dealer = this.state.dealer
   //   dealer.
-  //   return
+  //   return dealer
   //
   // }
-  //prompt for turn decision
-    //until stay or bust
 
+  // settle(){}
+  // reset(){}
   //game results displayed
 
       //bets resolved

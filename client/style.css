@@ -136,28 +136,30 @@ a {
 #hit{
   position: relative;
   top:-50px;
-  right:-169px;
-  background-color: #4CAF50; /* Green */
-  border: none;
-  color: white;
-  padding: 15px 32px;
+  right:-168px;
+  background-color: #48d1cc; /* Green */
+  border: 2px solid black;
+  color: #006400;
+  padding: 12px 30px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
+  font-size: 20px;
 }
 #stay{
   position: relative;
   top:-50px;
-  right:-677px;
-  background-color: #4CAF50; /* Green */
-  border: 1px solid black;
-  color: white;
-  padding: 15px 32px;
+  right:-676px;
+  background-color: #87ceeb; /* Green */
+  border: 2px solid black;
+  color: #006400;
+  padding: 12px 30px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
+  font-style: oblique;
+  font-family:
+  font-size: 20px;
 }
 #bank{
   background-color: white;

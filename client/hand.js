@@ -48,10 +48,10 @@ export default class Hand extends Component{
     dHandArray == undefined || dHandArray.length < 1 ?
       cards = [] :
       cards = dHandArray.map((card, key) => {
-        const classString = (key == 0) ? "card" : "cardDown"
+        // const classString = (key == 0) ? "card" : "cardDown"
         return (
         <div>
-          <div className={classString} key={key}>
+          <div className="card" key={key}>
             <div id="cardRank">{ card.rank.name }</div>
             <span id="cardSuit">{ card.suit }</span>
           </div>
