@@ -44,6 +44,7 @@ export default class Board extends Component {
     const dealer = {
       name: 'Dealer',
       stay: false,
+      bust: false,
       hand: [],
       cardTotal: 0
     }
@@ -54,6 +55,7 @@ export default class Board extends Component {
       bank: daBank,
       bet: 0,
       stay: false,
+      bust: false,
       hand: [],
       cardTotal: 0
     }
@@ -71,71 +73,72 @@ export default class Board extends Component {
 
     for(let i = 0; i < player.hand.length; i++){
       handTotal = handTotal + player.hand[i].rank.value
-      console.log("VALUES: ", player.hand[i].rank.value)
+      // console.log("VALUES: ", player.hand[i].rank.value)
     }
     player.cardTotal = handTotal
     // console.log("handValue: ", player.cardTotal)
     handTotal = 0
     for(let i = 0; i < dealer.hand.length; i++){
       handTotal = handTotal + dealer.hand[i].rank.value
-      console.log("dVALUES: ", dealer.hand[i].rank.value)
+      // console.log("dVALUES: ", dealer.hand[i].rank.value)
     }
     dealer.cardTotal = handTotal
     handTotal = 0
-
+    player.bet = prompt("How much you wanna throw down?")
+    player.bank = player.bank - player.bet
+    player.bet = parseInt(player.bet)
+    // console.log("PPAPAPPAPLLELELALELTEYEYAR", player)
     this.setState(Object.assign(this.state, { player, dealer, deck }))
   }
-  bust() {
-    let { player } = this.state
-
+  bust(player) {
+    console.log("PLAAAYYEYRERE", player);
     if(player.cardTotal > 21) {
-      console.log(player.cardTotal)
-      let playerHand = player.hand
-      console.log("kjdhfsk", player.hand[1].rank.value)
-      for(let i = 0; i < playerHand.length; i++) {
-        if(playerHand[i].rank.name === "A") {
-          playerHand[i].rank.value = 1
-          break;
+      // console.log(player.cardTotal)
+      // console.log("kjdhfsk", player.hand[1].rank.value)
+
+      for(var i = 0; i < player.hand.length; i++) {
+        if(player.hand[i].rank.name === "A" && player.hand[i].rank.value !== 1) {
+          player.hand[i].rank.value = 1
+          break
         } else {
-          alert("YOU SUCK :'(")
-          player.stay = true
-          return false
+          break
         }
+        break
       }
 
     }else {
-      return true
+      return false
     }
+    this.setState(Object.assign(this.state, { player, dealer, deck }))
     return false
   }
-  dealerBust() {
-    let { dealer } = this.state
+  dealerBust(dealer) {
 
     if(dealer.cardTotal > 21) {
       // console.log(dealer.cardTotal)
-      let dealerHand = dealer.hand
       // console.log("kjdhfsk", dealer.hand[1].rank.value)
-      for(let i = 0; i < dealerHand.length; i++) {
-        if(dealerHand[i].rank.name === "A") {
-          dealerHand[i].rank.value = 1
-          break;
+      for(let i = 0; i < dealer.hand.length; i++) {
+        if(dealer.hand[i].rank.name === "A") {
+          dealer.hand[i].rank.value = 1
+          return false
         } else {
           dealer.stay = true
-          return false
+
+          return true
         }
       }
 
     }else {
-      return true
+      return false
     }
     return false
   }
 
   hit(){
-    //debugger;
-    let { deck, player } = this.state
 
-    this.bust() ?
+    let { deck, player, dealer } = this.state
+
+    this.bust(player) ?
     this.gameFlow() : player.hand.push( deck.cards.shift() )
 
     let handTotal = 0
@@ -148,13 +151,21 @@ export default class Board extends Component {
     // console.log("handValue: ", player.cardTotal)
     handTotal = 0
     this.setState(Object.assign(this.state, { player, dealer, deck }))
-
+    if(this.bust(player)){
+      player.stay = true
+      player.bust = true
+      // alert("BUST!!")
+      this.gameFlow()
+    }
   }
   dealerHit(){
     let { dealer, deck } = this.state
 
-    this.dealerBust() ?
-    this.gameFlow() : (dealer.hand.push( deck.cards.shift() ), this.gameFlow())
+    if(this.dealerBust(dealer)){
+      this.gameFlow()
+    }else{
+      dealer.hand.push( deck.cards.shift() )
+    }
 
     let handTotal = 0
 
@@ -166,10 +177,12 @@ export default class Board extends Component {
     // console.log("handValue: ", player.cardTotal)
     handTotal = 0
     this.setState(Object.assign(this.state, { dealer, deck }))
+    this.gameFlow()
+
   }
 
   stay(){
-    let { player } = this.state.player
+    let { player } = this.state
 
     player ?
     player.stay = true
@@ -178,6 +191,7 @@ export default class Board extends Component {
     // console.log("PLAYER: ",this.state.player);
 
     this.setState(Object.assign(this.state, { player }))
+    // alert("BACK IN THE FLOW1!")
     this.gameFlow()
   }
 
@@ -185,31 +199,77 @@ export default class Board extends Component {
     // debugger
     let { player, dealer } = this.state
 
-
     player.stay == true && dealer.stay == true ?
     this.settle() :
     (player.stay == true ?
-    this.dealerTurn() : null)
+    this.dealerTurn(dealer) : null)
     //dealer looks at hand
 
     // console.log("dealers turn")
     //decides to hit or stay
   }
-  dealerTurn(){
-    let { player, dealer } = this.state
+  dealerTurn(dealer){
+
     dealer.cardTotal >= 17 ?
       dealer.stay = true :
-      this.hit()
+      this.dealerHit()
 
-    console.log("state of dealer at his turn", dealer)
-    // this.gameFlow()
+    // console.log("state of dealer at his turn", dealer)
+    this.gameFlow()
 
   }
 
   settle(){
-    alert("IM IN SETTLE!")
+    let { dealer, player } =this.state
+
+    console.log("STUFF", player )
+    if(player.cardTotal > dealer.cardTotal && dealer.cardTotal > 21 ){
+      alert("YYYOOOUUUU WWWIIIINNNN!!!!1")
+      player.bank = (player.bet * 2) + player.bank
+      this.reset()
+    }else if(player.cardTotal > 21 && dealer.cardTotal > 21){
+      alert("YOUU LOSE!!!")
+      this.reset()
+    }else if(player.cardTotal > dealer.cardTotal){
+      alert("YYYOOOUUUU WWWIIIINNNN!!!!1")
+    }else{player.cardTotal < dealer.cardTotal}{
+      alert("YYYOOOUUU LLLOOOSSSEEEE")
+      this.reset()
+    }
   }
-  // reset(){}
+  reset(){
+    let { player, dealer, deck } = this.state
+
+    dealer.hand = []
+    dealer.stay = false
+    dealer.cardTotal = 0
+
+    player.stay = false
+    player.hand = []
+    player.cardTotal = 0
+
+    //
+    // dealer = {
+    //   name: 'Dealer',
+    //   stay: false,
+    //   bust: false,
+    //   hand: [],
+    //   cardTotal: 0
+    // }
+    // player = {
+    //   name: player.name,
+    //   bank: player.bank,
+    //   bet: 0,
+    //   stay: false,
+    //   bust: false,
+    //   hand: [],
+    //   cardTotal: 0
+    // }
+    deck = new Deck()
+    this.setState(Object.assign(this.state, { player, dealer, deck }))
+    this.deal()
+
+  }
   //game results displayed
 
       //bets resolved
@@ -224,7 +284,7 @@ export default class Board extends Component {
     let playerComponent = <Player name={player.name} handArray={player.hand} bank={player.bank} />
     return (
       <div id="foo">
-        <div id="dealer"> { dealerComponent } </div>
+        <div id="Dealer"> { dealerComponent } </div>
         <div id="playerSpace"> { playerComponent } </div>
 
         <button id="hit" onClick={this.hit.bind(this)}>Hit</button>
