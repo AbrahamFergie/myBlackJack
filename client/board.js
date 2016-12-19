@@ -192,7 +192,8 @@ export default class Board extends Component {
 
     this.setState(Object.assign(this.state, { player }))
     // alert("BACK IN THE FLOW1!")
-    this.gameFlow()
+    setTimeout(this.gameFlow().bind(this), 2000)
+    this.stopTimeOut()
   }
 
   gameFlow() {
@@ -218,24 +219,18 @@ export default class Board extends Component {
     this.gameFlow()
 
   }
-
+//if cardtotal - 21 < cardtotal -21 and cardtotal is not over 21then win
   settle(){
-    let { dealer, player } =this.state
+    debugger
+    let { dealer, player } = this.state
 
-    console.log("STUFF", player )
-    if(player.cardTotal > dealer.cardTotal && dealer.cardTotal > 21 ){
-      alert("YYYOOOUUUU WWWIIIINNNN!!!!1")
+    if(player.cardTotal - 21 < dealer.cardTotal - 21 && player.cardTotal < 22){
+      alert("YOU ARE WINNING FOR THE DAYS OF GOOD STUFF...LIFE ENJOYS YOU SO RETURN THE FAVOR!")
       player.bank = (player.bet * 2) + player.bank
-      this.reset()
-    }else if(player.cardTotal > 21 && dealer.cardTotal > 21){
-      alert("YOUU LOSE!!!")
-      this.reset()
-    }else if(player.cardTotal > dealer.cardTotal){
-      alert("YYYOOOUUUU WWWIIIINNNN!!!!1")
-    }else{player.cardTotal < dealer.cardTotal}{
-      alert("YYYOOOUUU LLLOOOSSSEEEE")
-      this.reset()
+    }else{
+      alert("VALIANT OR FOOLHARDY...NOT SURE...HOPEFULLY YOU DIDNT LOSE ALL YOUR MONEY...")
     }
+    this.reset()
   }
   reset(){
     let { player, dealer, deck } = this.state
@@ -248,35 +243,13 @@ export default class Board extends Component {
     player.hand = []
     player.cardTotal = 0
 
-    //
-    // dealer = {
-    //   name: 'Dealer',
-    //   stay: false,
-    //   bust: false,
-    //   hand: [],
-    //   cardTotal: 0
-    // }
-    // player = {
-    //   name: player.name,
-    //   bank: player.bank,
-    //   bet: 0,
-    //   stay: false,
-    //   bust: false,
-    //   hand: [],
-    //   cardTotal: 0
-    // }
+
     deck = new Deck()
     this.setState(Object.assign(this.state, { player, dealer, deck }))
     this.deal()
 
   }
-  //game results displayed
 
-      //bets resolved
-
-  //prompt for new game
-
-  // setTimeout()
   render () {
 
     let { dealer, deck, player } = this.state
@@ -286,6 +259,9 @@ export default class Board extends Component {
       <div id="foo">
         <div id="Dealer"> { dealerComponent } </div>
         <div id="playerSpace"> { playerComponent } </div>
+        <div id="handValue">{player.name}: {player.cardTotal}</div>
+        <div id="dHandValue">dealer:  {dealer.cardTotal}</div>
+
 
         <button id="hit" onClick={this.hit.bind(this)}>Hit</button>
         <button id="stay" onClick={this.stay.bind(this)}>Stay</button>

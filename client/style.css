@@ -90,11 +90,11 @@ a {
   background-repeat: no-repeat;
   background-size: 100% 100%;
   opacity: 0.9;
-  margin-top: 30%;
+  margin-top: 27%;
   left: 25%;
   display:block;
   width: 50%;
-  height: 25%;
+  height: 30%;
   border: 2px solid blue;
   border-radius: 5px;
   box-sizing: border-box;
@@ -134,7 +134,7 @@ a {
   position: relative;
 }
 #hit{
-  position: relative;
+  position: inherit;
   top:-50px;
   right:-168px;
   background-color: #48d1cc; /* Green */
@@ -147,7 +147,7 @@ a {
   font-size: 20px;
 }
 #stay{
-  position: relative;
+  position: inherit;
   top:-50px;
   right:-676px;
   background-color: #87ceeb; /* Green */
@@ -161,6 +161,36 @@ a {
   font-family:
   font-size: 20px;
 }
+#handValue{
+  position: fixed
+  top:0px;
+  right:-676px;
+  background-color: #87ceeb; /* Green */
+  border: 2px solid black;
+  color: #006400;
+  padding: 12px 30px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-style: oblique;
+  font-family: fantasy;
+  font-size: 20px;
+}
+#dHandValue{
+  position: absolute
+  bottom:-900000px;
+  right:-676px;
+  background-color: #87ceeb; /* Green */
+  border: 2px solid black;
+  color: #006400;
+  padding: 12px 30px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-style: oblique;
+  font-family: fantasy;
+  font-size: 20px;
+}
 #bank{
   background-color: white;
   position: absolute;
@@ -169,4 +199,6 @@ a {
   flex-wrap: wrap;*/
   bottom:0px;
   right:0px;
+  font-family: fantasy;
+
 }
