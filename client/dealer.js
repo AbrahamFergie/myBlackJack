@@ -10,12 +10,12 @@ export default class Dealer extends Component {
 
     render () {
 
-      const { name, dHandArray } = this.props
+      const { name, handTotal, dHandArray } = this.props
 
 
       return (
         <div id="hand">
-          <span id="dealerName"> {name} </span>
+          <span id="dealerName"> {name}{': '}{handTotal} </span><br /><br />
           <Hand dHandArray={dHandArray}/>
         </div>
   )}

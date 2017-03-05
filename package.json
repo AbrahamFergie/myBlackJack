@@ -9,19 +9,19 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/pllearns/new-react-app.git"
+    "url": "git+https://github.com/abrahamFergie/BlackJack.git"
   },
   "keywords": [
     "react",
     "webpack",
     "express"
   ],
-  "author": "Phillip Lorenzo",
+  "author": "Abraham Ferguson",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/pllearns/new-react-app/issues"
+    "url": "https://github.com/abrahamFergie/BlackJack/issues"
   },
-  "homepage": "https://github.com/pllearns/new-react-app#readme",
+  "homepage": "https://github.com/abrahamFergie/BlackJack#readme",
   "devDependencies": {
     "babel": "^6.5.2",
     "babel-cli": "^6.18.0",
