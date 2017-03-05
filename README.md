@@ -1,7 +1,7 @@
-# new-react-app
+# myBlackJack
 Description
 
-Create a blackjack to be played in a web browser based on the command line version available here: https://github.com/phoniks/BlackJack
+Create a blackjack to be played in a web browser based on the command line version available here: https://github.com/AbrahamFergie/BlackJack
 
 Context
 
