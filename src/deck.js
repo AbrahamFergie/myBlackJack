@@ -1,4 +1,3 @@
-//import React, { Component } from 'react'
 import _ from 'lodash'
 import { all } from './card'
 
@@ -16,15 +15,8 @@ export default class Deck{
     }
   }
 
-  checkDeckForCompletion () {
-    //check to make sure we have no reiterations beyond what is regulation
-    this.numberOfCards = this.cards.length
-  }
-
-
   createDeck(){
     const deck = shuffleDeck()
     return deck
   }
-
 }

@@ -1,0 +1,299 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  height:auto;
+  width:auto;
+}
+a {
+  color: #00B7FF;
+}
+#board {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-image:  url("http://wallpapercave.com/wp/v5eW6jf.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  height: 890px;
+  border-radius: 5px;
+  margin-left: auto;
+  margin-right: auto;
+  position: inherit;
+  border: 3px solid blue;
+  box-sizing: border-box;
+}
+#Dealer {
+  display: inline-block;
+  position: inherit;
+  flex-direction: row;
+  flex-wrap: wrap;
+  background-image:url("http://www.customtablefelt.com/images/suited-poker-felt/suited-poker-table-felt-400x300.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  opacity: 0.9;
+  width: 700px;
+  height: 200px;
+  left: 2000px;
+  border: 2px solid blue;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+.card {
+  border:0.5px solid black;
+  border-radius: 7px;
+  height: 140px;
+  width: 95px;
+  float:left;
+  margin:5px;
+  background-image:url("http://t09.deviantart.net/J0g3xl2jd0jisHH7q8wgmnkoi4Y=/300x200/filters:fixed_height(100,100):origin()/pre03/3c3d/th/pre/f/2013/303/3/3/lady_deadpool___colors_by_zethkeeper-d6sdqhf.jpg");
+}
+#hit:focus{
+  outline: 0;
+}
+#hit{
+  /*display: flex;*/
+  position: relative;
+  top:625px;
+  right:410px;
+  background-color: #48d1cc;
+  border: 2px solid black;
+  border-radius: 30px 30px 0px 0px;
+  color: #006400;
+  padding: 7px 20px 20px 20px;
+  text-align: center;
+  text-decoration: none;
+  font-style: oblique;
+  font-weight: bolder;
+  font-family: fantasy;
+  font-size: 20px;
+  height: 45px;
+  width: 100px;
+}
+#stay:focus{
+  outline: 0;
+}
+#stay{
+  /*display: flex;*/
+  position: relative;
+  top:625px;
+  right:285px;
+  background-color: #87ceeb;
+  border: 2px solid black;
+  border-radius: 30px 30px 0px 7px;
+  color: #006400;
+  padding: 7px 20px 20px 20px;
+  text-align: center;
+  text-decoration: none;
+  font-style: oblique;
+  font-weight: bolder;
+  font-family: fantasy;
+  font-size: 20px;
+  height: 45px;
+  width: 100px;
+}
+#player {
+  display: inline-block;
+  position: inherit;
+  flex-direction: row;
+  flex-wrap: wrap;
+  background-color: white;
+  background-image: url("http://www.customtablefelt.com/images/suited-poker-felt/suited-poker-table-felt-400x300.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  opacity: 0.9;
+  margin-top: 487px;
+  margin-left: 290px;
+  width: 700px;
+  height: 200px;
+  border: 2px solid blue;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+#dealerName{
+  border: 0.5px solid black;
+  font-size: 20px;
+  font-family: fantasy;
+  background-color:orange;
+  width:100%;
+  border-radius: 5px;
+}
+#playerName{
+  border: 0.5px solid black;
+  font-size: 20px;
+  font-family: fantasy;
+  background-color:orange;
+  width:30%;
+  border-radius: 5px;
+}
+#bet{
+  float: right;
+  border: 0.5px solid black;
+  font-size: 20px;
+  font-family: fantasy;
+  background-color:orange;
+  width:30%;
+  border-radius: 3px 3px 3px 3px;
+}
+#cardSuit{
+  color: #ffff00;
+  position: relative;
+  font-size:70px;
+  top:11%;
+  left:25%;
+}
+#cardRank{
+  position:inherit;
+  border-radius: 2px;
+  width:13%;
+  background-color: black;
+  color: #ffff00;
+  position: inherit;
+}
+#hand{
+  position: relative;
+}
+#handValue{
+  position: absolute;
+  display: inline;
+  width: 1%;
+  background-color: #87ceeb;
+  border: 2px solid black;
+  color: #006400;
+  padding: 12px 30px;
+  text-align: center;
+  text-decoration: none;
+  font-style: oblique;
+  font-family: fantasy;
+  font-size: 20px;
+}
+#dHandValue{
+  position: absolute
+  bottom:-900000px;
+  right:-676px;
+  background-color: #87ceeb;
+  border: 2px solid black;
+  color: #006400;
+  padding: 12px 30px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-style: oblique;
+  font-family: fantasy;
+  font-size: 20px;
+}
+#bank{
+  position: inherit;
+  background-color: white;
+  border-radius: 3px 3px 3px 3px;
+  width: 30%;
+  float: right;
+  margin-top: 98px;
+  font-family: fantasy;
+  font-size: 1.5em;
+}
+#whiteChip:focus{
+  outline: 0;
+}
+#whiteChip{
+  position: relative;
+  top:520px;
+  right:380px;
+  background-color: #48d1cc;
+  border: 2px solid black;
+  border-radius: 200px 200px 200px 200px;
+  color: #006400;
+  padding: 7px 20px 20px 20px;
+  text-align: center;
+  text-decoration: none;
+  font-style: oblique;
+  font-weight: bolder;
+  font-family: fantasy;
+  font-size: 13px;
+  height: 70px;
+  width: 75px;
+}
+#redChip:focus{
+  outline: 0;
+}
+#redChip{
+  position: relative;
+  top:580px;
+  right:380px;
+  background-color: #48d1cc;
+  border: 2px solid black;
+  border-radius: 200px 200px 200px 200px;
+  color: #006400;
+  padding: 7px 20px 20px 20px;
+  text-align: center;
+  text-decoration: none;
+  font-style: oblique;
+  font-weight: bolder;
+  font-family: fantasy;
+  font-size: 13px;
+  height: 70px;
+  width: 75px;
+}
+#greenChip:focus{
+  outline: 0;
+}
+#greenChip{
+  position: relative;
+  top:601px;
+  right:350px;
+  background-color: #48d1cc;
+  border: 2px solid black;
+  border-radius: 200px 200px 200px 200px;
+  color: #006400;
+  padding: 7px 20px 20px 20px;
+  text-align: center;
+  text-decoration: none;
+  font-style: oblique;
+  font-weight: bolder;
+  font-family: fantasy;
+  font-size: 13px;
+  height: 70px;
+  width: 75px;
+}
+#blueChip:focus{
+  outline: 0;
+}
+#blueChip{
+  position: relative;
+  top:580px;
+  right:320px;
+  background-color: #48d1cc;
+  border: 2px solid black;
+  border-radius: 200px 200px 200px 200px;
+  color: #006400;
+  padding: 7px 20px 20px 20px;
+  text-align: center;
+  text-decoration: none;
+  font-style: oblique;
+  font-weight: bolder;
+  font-family: fantasy;
+  font-size: 13px;
+  height: 70px;
+  width: 75px;
+}
+#blackChip:focus{
+  outline: 0;
+}
+#blackChip{
+  position: relative;
+  top:520px;
+  right:300px;
+  background-color: #48d1cc;
+  border: 2px solid black;
+  border-radius: 200px 200px 200px 200px;
+  color: #006400;
+  padding: 7px 20px 20px 20px;
+  text-align: center;
+  text-decoration: none;
+  font-style: oblique;
+  font-weight: bolder;
+  font-family: fantasy;
+  font-size: 13px;
+  height: 70px;
+  width: 75px;
+}

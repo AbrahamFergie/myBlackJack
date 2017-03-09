@@ -4,21 +4,14 @@ body {
   height:auto;
   width:auto;
 }
-
 a {
   color: #00B7FF;
 }
-
 #board {
   background-image:  url("http://wallpapercave.com/wp/v5eW6jf.jpg");
   background-repeat: no-repeat;
   background-size: 100% 100%;
   border-radius: 5px;
-
-
-  /*background-attachment: fixed;*/
-  /*overflow: hidden;*/
-  /*display:inline-block;*/
   margin-left: auto;
   margin-right: auto;
   position: inherit;
@@ -42,16 +35,13 @@ a {
   border-radius: 5px;
   box-sizing: border-box;
 }
-
-
 .card {
   border:0.5px solid black;
   border-radius: 7px;
   height: 140px;
   width: 95px;
   float:left;
-  margin:5px;
-  /*background-color: #90ee90;*/
+  margin:60px;
   background-image:url("http://t09.deviantart.net/J0g3xl2jd0jisHH7q8wgmnkoi4Y=/300x200/filters:fixed_height(100,100):origin()/pre03/3c3d/th/pre/f/2013/303/3/3/lady_deadpool___colors_by_zethkeeper-d6sdqhf.jpg");
 }
 .cardDown{
@@ -65,23 +55,7 @@ a {
   transition: transform 1s;
   transform: rotateY(180deg);
   backface-visibility: hidden;
-   /*background-color: #90ee90;*/
-  /*background-image:url("http://t09.deviantart.net/J0g3xl2jd0jisHH7q8wgmnkoi4Y=/300x200/filters:fixed_height(100,100):origin()/pre03/3c3d/th/pre/f/2013/303/3/3/lady_deadpool___colors_by_zethkeeper-d6sdqhf.jpg");*/
 }
-/*#reveal .cardDown{
-  border:0.5px solid black;
-  border-radius: 7px;
-  height: 140px;
-  width: 95px;
-  float:left;
-  margin:5px;
-  transform-style: preserve-3d;
-  transition: transform 1s;
-  transform: rotateY(180deg);
-
-   background-color: #90ee90;
-  background-image:url("http://t09.deviantart.net/J0g3xl2jd0jisHH7q8wgmnkoi4Y=/300x200/filters:fixed_height(100,100):origin()/pre03/3c3d/th/pre/f/2013/303/3/3/lady_deadpool___colors_by_zethkeeper-d6sdqhf.jpg");
-}*/
 #player {
   position: relative;
   background-color: white;
@@ -97,21 +71,30 @@ a {
   border: 2px solid blue;
   border-radius: 5px;
   box-sizing: border-box;
-
 }
 #dealerName{
   border: 0.5px solid black;
   font-size: 40px;
+  font-family: fantasy;
   background-color:orange;
   width:100%;
   border-radius: 5px;
-  color:white;
 }
 #playerName{
   border: 0.5px solid black;
   font-size: 40px;
+  font-family: fantasy;
   background-color:orange;
-  width:100%;
+  width:30%;
+  border-radius: 5px;
+}
+#bet{
+  float: right;
+  border: 0.5px solid black;
+  font-size: 30px;
+  font-family: fantasy;
+  background-color:orange;
+  width:30%;
   border-radius: 5px;
 }
 #cardSuit{
@@ -134,11 +117,12 @@ a {
 }
 #hit{
   display: flex;
-  position: relative;
-  top:-310px;
-  right:-389px;
-  background-color: #48d1cc; /* Green */
+  position: fixed;
+  top:680px;
+  right:1469px;
+  background-color: #48d1cc;
   border: 2px solid black;
+  border-radius: 30px 30px 0px 7px;
   color: #006400;
   padding: 12px 30px;
   text-align: center;
@@ -150,12 +134,12 @@ a {
   height: 60px;
 }
 #stay{
-  display: flex;
-  position: relative;
-  top:-370px;
-  right:-1062px;
-  background-color: #87ceeb; /* Green */
+  position: fixed;
+  top:680px;
+  right:559px;
+  background-color: #87ceeb;
   border: 2px solid black;
+  border-radius: 30px 30px 0px 7px;
   color: #006400;
   padding: 12px 30px;
   text-align: center;
@@ -166,47 +150,41 @@ a {
   font-size: 20px;
   height: 60px;
 }
-#handValue{
-  position: absolute;
-  display: inline;
-  width: 1%;
-  /*margin-top: 0px;*/
-  /*margin-left: 20%;*/
-  background-color: #87ceeb; /* Green */
-  border: 2px solid black;
-  color: #006400;
-  padding: 12px 30px;
-  text-align: center;
-  text-decoration: none;
-  /*display: inline-block;*/
-  font-style: oblique;
-  font-family: fantasy;
-  font-size: 20px;
-}
-#dHandValue{
-  position: absolute
-  bottom:-900000px;
-  right:-676px;
-  background-color: #87ceeb; /* Green */
-  border: 2px solid black;
-  color: #006400;
-  padding: 12px 30px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-style: oblique;
-  font-family: fantasy;
-  font-size: 20px;
-}
+  /*#handValue{
+    position: absolute;
+    display: inline;
+    width: 1%;
+    background-color: #87ceeb;
+    border: 2px solid black;
+    color: #006400;
+    padding: 12px 30px;
+    text-align: center;
+    text-decoration: none;
+    font-style: oblique;
+    font-family: fantasy;
+    font-size: 20px;
+  }
+  #dHandValue{
+    position: absolute
+    /*bottom:-900000px;*/
+    right:-676px;
+    background-color: #87ceeb;
+    border: 2px solid black;
+    color: #006400;
+    padding: 12px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-style: oblique;
+    font-family: fantasy;
+    font-size: 20px;
+  }*/
 #bank{
   background-color: white;
   position: absolute;
   border-radius: 5px;
-  /*display:flex;
-  flex-wrap: wrap;*/
   bottom:0px;
   right:0px;
   font-family: fantasy;
   font-size: 2.2em;
-
 }
