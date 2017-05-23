@@ -25,7 +25,7 @@ a {
 }
 #Dealer {
   display: inline-block;
-  position: inherit;
+  position: relative;
   flex-direction: row;
   flex-wrap: wrap;
   background-image:url("http://www.customtablefelt.com/images/suited-poker-felt/suited-poker-table-felt-400x300.jpg");
@@ -34,7 +34,7 @@ a {
   opacity: 0.9;
   width: 700px;
   height: 200px;
-  left: 2000px;
+  left: 290px;
   border: 2px solid blue;
   border-radius: 5px;
   box-sizing: border-box;
@@ -54,8 +54,8 @@ a {
 #hit{
   /*display: flex;*/
   position: relative;
-  top:625px;
-  right:410px;
+  top: 625px;
+  right: 410px;
   background-color: #48d1cc;
   border: 2px solid black;
   border-radius: 30px 30px 0px 0px;
@@ -199,10 +199,12 @@ a {
   position: relative;
   top:520px;
   right:380px;
-  background-color: #48d1cc;
+  background-image: url('http://www.how-to-hold-a-party.com/images/poker/poker_chip_white.png');
+  background-position: center;
+  background-size: 69px 69px;
   border: 2px solid black;
   border-radius: 200px 200px 200px 200px;
-  color: #006400;
+  /*color: #006400;*/
   padding: 7px 20px 20px 20px;
   text-align: center;
   text-decoration: none;
@@ -220,7 +222,9 @@ a {
   position: relative;
   top:580px;
   right:380px;
-  background-color: #48d1cc;
+  background-image: url('http://www.how-to-hold-a-party.com/images/poker/poker_chip_red.png');
+  background-size: 69px 69px;
+  background-position: 0.3px;
   border: 2px solid black;
   border-radius: 200px 200px 200px 200px;
   color: #006400;
@@ -232,7 +236,7 @@ a {
   font-family: fantasy;
   font-size: 13px;
   height: 70px;
-  width: 75px;
+  width: 72px;
 }
 #greenChip:focus{
   outline: 0;
@@ -241,8 +245,11 @@ a {
   position: relative;
   top:601px;
   right:350px;
-  background-color: #48d1cc;
-  border: 2px solid black;
+  background-image: url('http://cdn3.volusion.com/vuawm.poqar/v/vspfiles/photos/3289-1.jpg?1389763324');
+  background-size: 84px 84px;
+  background-position: -1px;
+  background-size: 69px 69px;
+  background-position: 0.3px;  border: 2px solid black;
   border-radius: 200px 200px 200px 200px;
   color: #006400;
   padding: 7px 20px 20px 20px;
@@ -253,7 +260,7 @@ a {
   font-family: fantasy;
   font-size: 13px;
   height: 70px;
-  width: 75px;
+  width: 71px;
 }
 #blueChip:focus{
   outline: 0;
@@ -262,7 +269,9 @@ a {
   position: relative;
   top:580px;
   right:320px;
-  background-color: #48d1cc;
+  background-image: url('http://poker.marlowcasinochips.com/diceblue.jpg');
+  background-position: center;
+  background-size: 80px 80px;
   border: 2px solid black;
   border-radius: 200px 200px 200px 200px;
   color: #006400;
@@ -283,7 +292,9 @@ a {
   position: relative;
   top:520px;
   right:300px;
-  background-color: #48d1cc;
+  background-image: url('http://www.how-to-hold-a-party.com/images/poker/poker_chip_black.png');
+  background-position: center;
+  background-size: 80px 80px;
   border: 2px solid black;
   border-radius: 200px 200px 200px 200px;
   color: #006400;
