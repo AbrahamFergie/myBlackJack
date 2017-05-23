@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
+import Prompt from 'react-bootstrap-prompt'
+
 import Player from './humanPlayer'
 import Dealer from './dealer'
-import deckGenerator from '../src/deck'
 import Deck from '../src/deck'
+// import prompt from '../src/promptBox'
 
 export default class Board extends Component {
    constructor( props ){
@@ -26,6 +28,7 @@ export default class Board extends Component {
   }
 
   setupPlayers() {
+    const playerName = prompt("Please enter your name: ")
     const dealer = {
       name: 'Dealer',
       stay: false,
@@ -33,11 +36,9 @@ export default class Board extends Component {
       hand: [],
       cardTotal: 0
     }
-    const playerName = prompt("Please enter your name: ")
-    const daBank = prompt("How much money do you want: ")
     const player = {
-      name: playerName,
-      bank: daBank,
+      name: '',
+      bank: 10000,
       bet: 0,
       stay: false,
       bust: false,
@@ -234,7 +235,6 @@ export default class Board extends Component {
   }
 
   render () {
-
     let { dealer, deck, player } = this.state
     let dealerComponent = <Dealer name={dealer.name} handTotal={dealer.cardTotal} dHandArray={dealer.hand} />
     let playerComponent = <Player name={player.name} bet={player.bet} handTotal={player.cardTotal} handArray={player.hand} bank={player.bank} />
