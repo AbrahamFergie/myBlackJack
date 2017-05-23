@@ -38,7 +38,7 @@ export default class Board extends Component {
     }
     const player = {
       name: '',
-      bank: 10000,
+      bank: 20000,
       bet: 0,
       stay: false,
       bust: false,
@@ -66,7 +66,7 @@ export default class Board extends Component {
     }
     dealer.cardTotal = handTotal
     handTotal = 0
-    player.bet = prompt("How much you wanna throw down?")
+    player.bet = prompt("Your bank is at " + player.bank + " How much you wanna throw down?")
     player.bank = player.bet !== NaN ? player.bank - player.bet : 0
     player.bet = parseInt(player.bet)
     this.setState(Object.assign(this.state, { player, dealer, deck }))
@@ -240,15 +240,21 @@ export default class Board extends Component {
     let playerComponent = <Player name={player.name} bet={player.bet} handTotal={player.cardTotal} handArray={player.hand} bank={player.bank} />
     return (
       <div id="foo">
-        <div id="Dealer"> { dealerComponent } </div>
-        <button id="hit" onClick={this.hit.bind(this)}>Hit</button>
-        <button id="whiteChip">1</button>
-        <button id="redChip">5</button>
-        <button id="greenChip">25</button>
-        <button id="blueChip">50</button>
-        <button id="blackChip">100</button>
-        <button id="stay" onClick={this.stay.bind(this)}>Stay</button>
-        <div id="playerSpace"> { playerComponent } </div>
+        <div id="dealerSpace">
+          <div id="dealer"> { dealerComponent } </div>
+        </div>
+        <div id="playerSpace">
+          <button id="hit" onClick={this.hit.bind(this)}>Hit</button>
+          <button id="stay" onClick={this.stay.bind(this)}>Stay</button>
+          <div className="chips">
+            <button id="whiteChip">1</button>
+            <button id="redChip">5</button>
+            <button id="greenChip">25</button>
+            <button id="blueChip">50</button>
+            <button id="blackChip">100</button>
+          </div>
+          { playerComponent }
+        </div>
       </div>
     )
   }

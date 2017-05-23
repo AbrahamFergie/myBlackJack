@@ -4,14 +4,14 @@ const logger = require('morgan')
 const favicon = require('serve-favicon')
 const cookieParser = require('cookie-parser')
 const bodyParser = require('body-parser')
+const http = require('http')
 
 const webpack = require('webpack')
-const config = require('./webpack.config.js')
-
+const config = require('./webpack.config')
+const port = process.env.PORT || 3000
 const app = express()
+const server = http.createServer(app)
 
-app.use(favicon(path.join(__dirname, 'client', 'favicon.ico')))
-app.use(logger('dev'))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(cookieParser())
@@ -35,28 +35,12 @@ if(process.env.NODE_ENV === 'development') {
   app.use(middleware)
   app.use(webpackHotMiddleware(compiler))
 }
+// app.use(express.static('component'))
 app.use(express.static(path.join(__dirname, 'client')))
-
-// development error handler
-// will print stacktrace
-if (app.get('env') === 'development') {
-  app.use((err, req, res) => {
-    res.status(err.status || 500)
-    res.render('error', {
-      message: err.message,
-      error: err
-    })
-  })
-}
-
-// production error handler
-// no stacktraces leaked to user
-app.use((err, req, res) => {
-  res.status(err.status || 500)
-  res.render('error', {
-    message: err.message,
-    error: {}
-  })
+app.use(express.static(path.join(__dirname, 'public')))
+app.use(express.static(path.join(__dirname, 'dist')))
+app.get('*', function(request, response){
+  response.sendFile(path.resolve(__dirname + '/client/public', 'index.html'))
 })
-
-module.exports = app
+app.set(port)
+server.listen(port)
