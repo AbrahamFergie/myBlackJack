@@ -19,12 +19,12 @@ export default class Board extends Component {
   }
 
   componentDidMount(){
-    this.setupGame()
     this.setupPlayers()
+    this.setupGame()
   }
 
   setupGame() {
-    setTimeout(this.deal.bind(this), 2000)
+    setTimeout(this.bet.bind(this), 2000)
   }
 
   setupPlayers() {
@@ -37,8 +37,8 @@ export default class Board extends Component {
       cardTotal: 0
     }
     const player = {
-      name: '',
-      bank: 10000,
+      name: playerName,
+      bank: 20000,
       bet: 0,
       stay: false,
       bust: false,
@@ -66,11 +66,37 @@ export default class Board extends Component {
     }
     dealer.cardTotal = handTotal
     handTotal = 0
-    player.bet = prompt("How much you wanna throw down?")
+    // player.bet = prompt("Your bank is at " + player.bank + " How much you wanna throw down?")
     player.bank = player.bet !== NaN ? player.bank - player.bet : 0
     player.bet = parseInt(player.bet)
     this.setState(Object.assign(this.state, { player, dealer, deck }))
   }
+
+  bet(chipType) {
+    let { player } = this.state
+    let chip = document.getElementsByClassName("chips")[0]
+    console.log("=====chip======", chipType)
+    switch(chipType){
+      case "white":
+        player.bet = player.bet + 1
+        break
+      case "red":
+        player.bet = player.bet + 5
+        break
+      case "green":
+        player.bet = player.bet + 25
+        break
+      case "blue":
+        player.bet = player.bet + 50
+        break
+      case "black":
+        player.bet = player.bet + 100
+        break
+    }
+    this.setState(Object.assign(this.state, { player }))
+    this.deal.bind(this)
+  }
+
   bust(player) {
     console.log("PLAAAYYEYRERE", player);
     if(player.cardTotal > 21) {
@@ -164,7 +190,6 @@ export default class Board extends Component {
     handTotal = 0
     this.setState(Object.assign(this.state, { dealer, deck }))
     this.anotherTimeOut()
-
   }
 
   stay(){
@@ -193,6 +218,7 @@ export default class Board extends Component {
       }
     }
   }
+
   dealerTurn(dealer){
 
     if(dealer.cardTotal >= 17){
@@ -225,13 +251,13 @@ export default class Board extends Component {
     dealer.stay = false
     dealer.cardTotal = 0
 
-    player.stay = false
     player.hand = []
+    player.stay = false
     player.cardTotal = 0
 
     deck = new Deck()
     this.setState(Object.assign(this.state, { player, dealer, deck }))
-    setTimeout(this.deal.bind(this), 2000)
+    setTimeout(this.bet.bind(this), 2000)
   }
 
   render () {
@@ -240,15 +266,21 @@ export default class Board extends Component {
     let playerComponent = <Player name={player.name} bet={player.bet} handTotal={player.cardTotal} handArray={player.hand} bank={player.bank} />
     return (
       <div id="foo">
-        <div id="Dealer"> { dealerComponent } </div>
-        <button id="hit" onClick={this.hit.bind(this)}>Hit</button>
-        <button id="whiteChip">1</button>
-        <button id="redChip">5</button>
-        <button id="greenChip">25</button>
-        <button id="blueChip">50</button>
-        <button id="blackChip">100</button>
-        <button id="stay" onClick={this.stay.bind(this)}>Stay</button>
-        <div id="playerSpace"> { playerComponent } </div>
+        <div id="dealerSpace">
+          <div id="dealer"> { dealerComponent } </div>
+        </div>
+        <div id="playerSpace">
+          <button id="hit" onClick={this.hit.bind(this)}>Hit</button>
+          <button id="stay" onClick={this.stay.bind(this)}>Stay</button>
+          <div className="chips">
+            <button onClick={this.bet.bind(this, "white")} id="whiteChip">1</button>
+            <button onClick={this.bet.bind(this, "red")} id="redChip">5</button>
+            <button onClick={this.bet.bind(this, "green")} id="greenChip">25</button>
+            <button onClick={this.bet.bind(this, "blue")} id="blueChip">50</button>
+            <button onClick={this.bet.bind(this, "black")} id="blackChip">100</button>
+          </div>
+          { playerComponent }
+        </div>
       </div>
     )
   }

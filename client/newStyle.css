@@ -3,6 +3,9 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   height:auto;
   width:auto;
+  background-image:  url("http://wallpapercave.com/wp/v5eW6jf.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
 }
 a {
   color: #00B7FF;
@@ -12,29 +15,31 @@ a {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  background-image:  url("http://wallpapercave.com/wp/v5eW6jf.jpg");
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
-  height: 890px;
-  border-radius: 5px;
+  height: 100%;
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
   position: inherit;
-  border: 3px solid blue;
   box-sizing: border-box;
 }
-#Dealer {
+#dealerSpace{
+  position: absolute;
+  top: 0.5%;
+  height: 26%;
+  width: 65%;
+  left: 20%;
+}
+#dealer {
   display: inline-block;
-  position: relative;
+  position: absolute;
   flex-direction: row;
   flex-wrap: wrap;
-  background-image:url("http://www.customtablefelt.com/images/suited-poker-felt/suited-poker-table-felt-400x300.jpg");
+  background-image: url(http://www.customtablefelt.com/images/suited-poker-felt/suited-poker-table-felt-400x300.jpg);
   background-repeat: no-repeat;
   background-size: 100% 100%;
   opacity: 0.9;
-  width: 700px;
-  height: 200px;
-  left: 290px;
+  width: 100%;
+  height: 100%;
   border: 2px solid blue;
   border-radius: 5px;
   box-sizing: border-box;
@@ -52,10 +57,9 @@ a {
   outline: 0;
 }
 #hit{
-  /*display: flex;*/
-  position: relative;
-  top: 625px;
-  right: 410px;
+  position: absolute;
+  top: -20%;
+  left: 0.3%;
   background-color: #48d1cc;
   border: 2px solid black;
   border-radius: 30px 30px 0px 0px;
@@ -73,11 +77,16 @@ a {
 #stay:focus{
   outline: 0;
 }
+.chips{
+  position: absolute;
+  width: 67.5%;
+  top: -40%;
+  left: 25%;
+}
 #stay{
-  /*display: flex;*/
-  position: relative;
-  top:625px;
-  right:285px;
+  position: absolute;
+  top: -20%;
+  right: -12.8%;
   background-color: #87ceeb;
   border: 2px solid black;
   border-radius: 30px 30px 0px 7px;
@@ -94,18 +103,15 @@ a {
 }
 #player {
   display: inline-block;
-  position: inherit;
   flex-direction: row;
   flex-wrap: wrap;
   background-color: white;
-  background-image: url("http://www.customtablefelt.com/images/suited-poker-felt/suited-poker-table-felt-400x300.jpg");
+  background-image: url(http://www.customtablefelt.com/images/suited-poker-felt/suited-poker-table-felt-400x300.jpg);
   background-repeat: no-repeat;
   background-size: 100% 100%;
-  opacity: 0.9;
-  margin-top: 487px;
-  margin-left: 290px;
-  width: 700px;
-  height: 200px;
+  opacity: 0.8;
+  width: 113%;
+  height: 100%;
   border: 2px solid blue;
   border-radius: 5px;
   box-sizing: border-box;
@@ -125,6 +131,13 @@ a {
   background-color:orange;
   width:30%;
   border-radius: 5px;
+}
+#playerSpace{
+  position: absolute;
+  bottom: 0.5%;
+  height: 26%;
+  width: 58%;
+  left: 20%;
 }
 #bet{
   float: right;
@@ -183,22 +196,43 @@ a {
   font-size: 20px;
 }
 #bank{
-  position: inherit;
+  position: absolute;
+  bottom: 2%;
+  left: 82.7%;
   background-color: white;
   border-radius: 3px 3px 3px 3px;
   width: 30%;
-  float: right;
-  margin-top: 98px;
   font-family: fantasy;
   font-size: 1.5em;
+}
+.start-screen {
+  background-color: white;
+  font-family: inherit;
+  height: 10%;
+  width: 28%;
+  font-size: -webkit-xxx-large;
+  position: absolute;
+  top: 21%;
+  left: 36%;
+  border-radius: 20%;
+  text-align: center;
+}
+.start-button {
+  position: absolute;
+  top: 75%;
+  width: 26%;
+  left: 38%;
+  height: 10%;
+  background-color: aquamarine;
+  border-radius: 5%;
+  font-family: inherit;
+  font-size: x-large;
 }
 #whiteChip:focus{
   outline: 0;
 }
 #whiteChip{
-  position: relative;
-  top:520px;
-  right:380px;
+  position: absolute;
   background-image: url('http://www.how-to-hold-a-party.com/images/poker/poker_chip_white.png');
   background-position: center;
   background-size: 69px 69px;
@@ -219,10 +253,10 @@ a {
   outline: 0;
 }
 #redChip{
-  position: relative;
-  top:580px;
-  right:380px;
-  background-image: url('http://www.how-to-hold-a-party.com/images/poker/poker_chip_red.png');
+  position: absolute;
+  top:0%;
+  left: 21%;
+  background-image:url('http://www.how-to-hold-a-party.com/images/poker/poker_chip_red.png');
   background-size: 69px 69px;
   background-position: 0.3px;
   border: 2px solid black;
@@ -242,9 +276,9 @@ a {
   outline: 0;
 }
 #greenChip{
-  position: relative;
-  top:601px;
-  right:350px;
+  position: absolute;
+  top:0%;
+  left: 41.5%;
   background-image: url('http://cdn3.volusion.com/vuawm.poqar/v/vspfiles/photos/3289-1.jpg?1389763324');
   background-size: 84px 84px;
   background-position: -1px;
@@ -266,9 +300,9 @@ a {
   outline: 0;
 }
 #blueChip{
-  position: relative;
-  top:580px;
-  right:320px;
+  position: absolute;
+  top:0%;
+  left: 62.5%;
   background-image: url('http://poker.marlowcasinochips.com/diceblue.jpg');
   background-position: center;
   background-size: 80px 80px;
@@ -289,10 +323,10 @@ a {
   outline: 0;
 }
 #blackChip{
-  position: relative;
-  top:520px;
-  right:300px;
-  background-image: url('http://www.how-to-hold-a-party.com/images/poker/poker_chip_black.png');
+  position: absolute;
+  top:0%;
+  left: 84.5%;
+  background-image:url('http://www.how-to-hold-a-party.com/images/poker/poker_chip_black.png');
   background-position: center;
   background-size: 80px 80px;
   border: 2px solid black;
