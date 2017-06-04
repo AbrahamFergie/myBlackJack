@@ -7,11 +7,10 @@ export default class Dealer extends Component {
     super(props)
   }
   render () {
-    const { name, handTotal, dHandArray } = this.props
+    const { name, handTotal, dHandArray, gamePhase } = this.props
     return (
-      <div id="hand">
-        <span id="dealerName"> {name}{': '}{handTotal} </span><br /><br />
-        <Hand dHandArray={dHandArray}/>
+      <div>
+        <Hand dHandArray={dHandArray} dHandTotal={handTotal} currentPhase={gamePhase}/>
       </div>
     )
   }
