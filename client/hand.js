@@ -60,7 +60,7 @@ export default class Hand extends Component{
   }
 
   render () {
-    let { dHandArray, dHandTotal, handTotal, currentPhase } = this.props
+    let { dHandArray, dHandTotal, handTotal, playerName, currentPhase } = this.props
 
     return ( dHandArray ?
       currentPhase === 3 ?
@@ -76,6 +76,7 @@ export default class Hand extends Component{
         { this.showCardUpNDown() }
       </div> :
       <div id="hand">
+        <span id="playerName">{playerName}</span>
         <div id="handValue">
           { handTotal }
         </div>

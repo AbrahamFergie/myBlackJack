@@ -24,7 +24,7 @@ export default class StartScreen extends Component {
     let { value } = this.state
     return(
       this.state.visibility ? <div className="start-screen">
-        <div className="start-screen-banner">Node BlackJack</div>
+        <div className="start-screen-banner">React BlackJack</div>
         <form className="start-screen-form" onSubmit={this.onClick.bind(this)}>
           <input type="text" className="player-name" value={this.state.value} onChange={this.handleChange} placeholder="Name"/>
           <input type="submit" value="START" className="start-button"/>

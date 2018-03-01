@@ -39,7 +39,7 @@ export default class Board extends Component {
     }
     const player = {
       name: this.props.playerName,
-      bank: 20000,
+      bank: 1000,
       bet: 0,
       stay: false,
       bust: false,
@@ -288,6 +288,7 @@ export default class Board extends Component {
   // <button id="split" onClick={this.splitInitialize.bind(this)}>Split</button>
   render () {
     let { dealer, deck, player, roundResult, phase } = this.state
+
     let dealerComponent = <Dealer name={dealer.name} handTotal={dealer.cardTotal} dHandArray={dealer.hand} gamePhase={phase} />
     let playerComponent = <Player name={player.name} bet={player.bet} handTotal={player.cardTotal} handArray={player.hand} splitBool={player.split} bank={player.bank} />
     return (

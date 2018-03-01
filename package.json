@@ -26,6 +26,7 @@
   },
   "homepage": "https://github.com/AbrahamFergie/BlackJack#readme",
   "devDependencies": {
+    "webpack-cli": "^2.0.9",
     "webpack-dev-middleware": "^1.8.4",
     "webpack-error-notification": "^0.1.6",
     "webpack-hot-middleware": "^2.13.2"
